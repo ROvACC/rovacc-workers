@@ -10,7 +10,7 @@ async function bootstrap() {
         urls: [process.env.RABBIT_MQ_URL],
         queue: process.env.RABBIT_MQ_TRAINING_QUEUE,
         queueOptions: {
-          durable: false,
+          durable: true,
         },
       },
     });
