@@ -11,7 +11,7 @@ import {
 export class AppController {
   constructor(private readonly appService: AppService) {}
 
-  @MessagePattern('notifications')
+  @MessagePattern({ event: 'test' })
   getNotifications(
     @Payload() data: Record<string, unknown>,
     @Ctx() context: RmqContext,
