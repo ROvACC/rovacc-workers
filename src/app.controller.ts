@@ -1,17 +1,12 @@
 import { Controller } from '@nestjs/common';
 import { AppService } from './app.service';
-import {
-  Ctx,
-  MessagePattern,
-  Payload,
-  RmqContext,
-} from '@nestjs/microservices';
+import { Ctx, EventPattern, Payload, RmqContext } from '@nestjs/microservices';
 
 @Controller()
 export class AppController {
   constructor(private readonly appService: AppService) {}
 
-  @MessagePattern({ event: 'test' })
+  @EventPattern({ event: 'user_created' })
   getNotifications(
     @Payload() data: Record<string, unknown>,
     @Ctx() context: RmqContext,
